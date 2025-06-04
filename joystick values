@@ -1,0 +1,21 @@
+// For ESP32 v3.x
+#define JOY_X 34  // Connect VRx to GPIO34 (ADC1_CH6)
+#define JOY_Y 35  // Connect VRy to GPIO35 (ADC1_CH7)
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);  // Wait for Serial to initialize
+  Serial.println("Move joystick to idle (centered) position...");
+}
+
+void loop() {
+  int xValue = analogRead(JOY_X); // Read X-axis
+  int yValue = analogRead(JOY_Y); // Read Y-axis
+
+  Serial.print("Joystick X: ");
+  Serial.print(xValue);
+  Serial.print(" | Y: ");
+  Serial.println(yValue);
+
+  delay(200); // Slow down output
+}
